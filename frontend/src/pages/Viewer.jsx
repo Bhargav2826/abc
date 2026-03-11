@@ -103,7 +103,7 @@ const ViewerPage = () => {
                     </button>
                     {doc.type === 'pdf' ? (
                         <a 
-                            href={`http://localhost:5001${doc.fileUrl}`} 
+                            href={`${api.defaults.baseURL.replace('/api', '')}${doc.fileUrl}`} 
                             download 
                             target="_blank"
                             rel="noreferrer"
@@ -170,7 +170,7 @@ const ViewerPage = () => {
                     <div className={`${isFullscreen ? 'h-screen' : 'h-[850px]'} w-full overflow-hidden`}>
                         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
                             <Viewer
-                                fileUrl={`http://localhost:5001${doc.fileUrl}`}
+                                fileUrl={`${api.defaults.baseURL.replace('/api', '')}${doc.fileUrl}`}
                                 plugins={[defaultLayoutPluginInstance]}
                                 theme="light"
                             />
